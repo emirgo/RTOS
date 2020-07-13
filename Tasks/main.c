@@ -7,13 +7,14 @@ TaskHandle_t myTask1Handle = NULL;
 
 void myTask1(void *p)
 {
+	TickType_t myLastUnblock = xTaskGetTickCount();
 	int count = (int*) p;
 	
 	while(1)
 	{
 		count++;
 		// 1 sec delay
-		vTaskDelay(1000);
+		vTaskDelayUntil(&myLastUnblock, 1000 * configTICK_RATE_HZ / 1000);
 		
 		// If goes beyond 30 delete the task
 		if (count > 30)

@@ -33,7 +33,7 @@ TaskHandle_t myTask1Handle = NULL;
 main.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 TaskHandle_t myTask1Handle = NULL;
 ^
-main.c(10): warning: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int *'; dereference with * [-Wint-conversion]
+main.c(11): warning: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int *'; dereference with * [-Wint-conversion]
         int count = (int*) p;
             ^       ~~~~~~~~
                     *
@@ -47,16 +47,16 @@ static
 main.c(9): warning: function 'myTask1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
 {
 ^
-main.c(31): warning: no newline at end of file [-Wnewline-eof]
+main.c(41): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-main.c(30): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(40): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0;
                ^
 6 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=3448 RO-data=268 RW-data=8 ZI-data=6048  
+Program Size: Code=3992 RO-data=268 RW-data=8 ZI-data=6048  
 ".\Objects\tasks.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -117,7 +117,7 @@ Package Vendor: Keil
       Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Include file:  RTE_Driver\Config\RTE_Device.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
