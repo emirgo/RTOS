@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.42.0.0
  
 <h2>Project:</h2>
 C:\Dev\RTOS\Tasks\tasks.uvprojx
-Project File Date:  07/13/2020
+Project File Date:  07/14/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -33,31 +33,50 @@ TaskHandle_t myTask1Handle = NULL;
 main.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 TaskHandle_t myTask1Handle = NULL;
 ^
-main.c(11): warning: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int *'; dereference with * [-Wint-conversion]
+main.c(7): warning: no previous extern declaration for non-static variable 'myTask2Handle' [-Wmissing-variable-declarations]
+TaskHandle_t myTask2Handle = NULL;
+             ^
+main.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+TaskHandle_t myTask2Handle = NULL;
+^
+main.c(12): warning: incompatible pointer to integer conversion initializing 'int' with an expression of type 'int *'; dereference with * [-Wint-conversion]
         int count = (int*) p;
             ^       ~~~~~~~~
                     *
-main.c(8): warning: no previous prototype for function 'myTask1' [-Wmissing-prototypes]
+main.c(9): warning: no previous prototype for function 'myTask1' [-Wmissing-prototypes]
 void myTask1(void *p)
      ^
-main.c(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(9): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void myTask1(void *p)
 ^
 static 
-main.c(9): warning: function 'myTask1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+main.c(10): warning: function 'myTask1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
 {
 ^
-main.c(41): warning: no newline at end of file [-Wnewline-eof]
+main.c(34): warning: unused parameter 'p' [-Wunused-parameter]
+void myTask2(void *p)
+                   ^
+main.c(34): warning: no previous prototype for function 'myTask2' [-Wmissing-prototypes]
+void myTask2(void *p)
+     ^
+main.c(34): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void myTask2(void *p)
+^
+static 
+main.c(35): warning: function 'myTask2' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+{
+^
+main.c(58): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-main.c(40): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(57): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0;
                ^
-6 warnings generated.
+10 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=3992 RO-data=268 RW-data=8 ZI-data=6048  
-".\Objects\tasks.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=4232 RO-data=268 RW-data=8 ZI-data=6048  
+".\Objects\tasks.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -97,15 +116,15 @@ Package Vendor: Keil
       Include file:  Config\ARMCM\FreeRTOSConfig.h
 
    * Component: ARM.FreeRTOS::RTOS:Core:Cortex-M:10.3.1
-      Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
-      Include file:  Source\include\semphr.h
-      Include file:  Source\include\task.h
-      Source file:   Source\queue.c
-      Source file:   Source\tasks.c
-      Include file:  Source\include\FreeRTOS.h
       Include file:  Source\include\queue.h
+      Include file:  Source\include\FreeRTOS.h
+      Include file:  Source\include\task.h
       Source file:   Source\list.c
+      Source file:   Source\tasks.c
+      Source file:   Source\queue.c
+      Include file:  Source\include\semphr.h
       Source file:   Source\portable\GCC\ARM_CM3\port.c
+      Source file:   CMSIS\RTOS2\FreeRTOS\Source\freertos_evr.c
 
    * Component: ARM.FreeRTOS::RTOS:Heap:Heap_4:10.3.1
       Source file:   Source\portable\MemMang\heap_4.c
@@ -113,11 +132,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
-Build Time Elapsed:  00:00:00
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
